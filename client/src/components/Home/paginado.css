@@ -1,0 +1,13 @@
+.list{
+    list-style: none;
+}
+.numbers{
+    color:black;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.numbers:hover{
+    transform: scale(1.2);
+    background-color: red;
+}

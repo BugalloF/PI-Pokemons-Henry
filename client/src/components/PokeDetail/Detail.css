@@ -1,0 +1,82 @@
+.main{
+    font-size: 22px;
+    font-family: "Arial";
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    color:yellow;
+    width:100vw;
+    height:100vh;
+    background: url("https://cdn.thearthunters.com/wp-content/uploads/2012/10/this-week-on-th-visual-wall-11-10.jpg");
+    background-position: right;
+}
+.pokeContainer {
+    border-radius: 30px;
+    border: 5px solid #ffd622;
+    width: 40%;
+    height: 85vh;
+    margin: 10px;
+    background-color: black;
+    opacity: 0.8;
+    position: relative;
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    /* margin-top: 15px; */
+    margin-bottom: 18px;
+    padding-top: 10px;
+
+}
+  .stats_container{
+      display: flex;
+      flex-direction: row;
+      /* gap: 10px; */
+      height: 50%;
+      align-items: center;
+      gap: 10px;
+  }
+.stats{
+    display: flex;
+    flex-direction: column;
+    border: 4px;
+    border-color: red;
+    gap: 5px;
+}
+.pic{
+    width: 90vw;
+    height: 90vh;
+}
+.btn_home{
+    font-family: 'Arial';
+    border-radius: 10px;
+    color: yellow;
+    border: yellow solid 2px;
+    cursor: pointer;
+    background-color: black;
+    margin-bottom: 5px;
+}
+.btn_home:hover{
+    transform: scale(1.1);
+    color:black;
+    background-color: yellow;
+}
+.pokepic{
+    height: 210px;
+    width: 210px;
+}
+.loaderDetail{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Arial';
+    font-size: 25px;
+    color: white;
+    background: url('https://data.whicdn.com/images/52808990/original.gif');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

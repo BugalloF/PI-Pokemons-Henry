@@ -1,4 +1,4 @@
-const{getPoke,getPokeApi,getPokeDB} = require('./utlils')
+const{getPoke} = require('./utlils')
  const { Pokemon, Type } = require("../db.js");
 const getAllPoke=async (req, res) => {
     try {
@@ -10,7 +10,7 @@ const getAllPoke=async (req, res) => {
       if (name) {
         let pokeByName = await totalPoke.filter((e) =>{
 
-            return e.name.toLowerCase().includes(name.toLowerCase())
+            return e.name.toLowerCase() === name.toLowerCase()
             // console.log('ESTOS SON LOS UNDEFINED',e.name, name)
         }
         );
@@ -28,16 +28,16 @@ const getAllPoke=async (req, res) => {
       }
     } catch (error) {
       res.status(400).send(error);
-      console.log(error);
+      // console.log(error);
     }
   };
   
   const getOnePoke=async (req,res)=>{
       const{id} = req.params
-      console.log('SOY EL ID :' ,id)
-      let Poketotals= await getPoke()
-      console.log(Poketotals)
+      // console.log('SOY EL ID :' ,id)
       try {
+      let Poketotals= await getPoke()
+      // console.log(Poketotals)
         if(id){
           let pokeId = await Poketotals.filter(e=>e.id == id)
           pokeId.length ?
@@ -51,10 +51,10 @@ const getAllPoke=async (req, res) => {
     }
       
   const postPoke= async(req,res)=>{
+    try {
     const {name,hp,attack,defense,speed,height,weight,type,img} = req.body
     // el tipo no se lo agrego aca porque va enlazado con la table type
-
-    try {
+    // console.log(type)
       let pokeCreate= await Pokemon.create({
         name,
         hp,
@@ -72,7 +72,7 @@ const getAllPoke=async (req, res) => {
       
       res.status(200).send(`Has creado el pokémon ${name}`)
     } catch (error) {
-      // console.log(error)
+      console.log(error)
       res.status(404).send('Cannot create the pokemon.')
     }}
     module.exports = {

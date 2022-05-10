@@ -7,6 +7,12 @@ const { Pokemon, conn } = require('../../src/db.js');
 const agent = session(app);
 const pokemon = {
   name: 'Pikachu',
+  hp: 35,
+  attack: 55,
+  defense: 40,
+  speed: 90,
+  height: 4,
+  weight: 60
 };
 
 describe('Pokemon routes', () => {
@@ -16,9 +22,27 @@ describe('Pokemon routes', () => {
   }));
   beforeEach(() => Pokemon.sync({ force: true })
     .then(() => Pokemon.create(pokemon)));
+
   describe('GET /pokemons', () => {
-    it('should get 200', () =>
-      agent.get('/pokemons').expect(200)
-    );
+    it('Should get status 200', () => {
+      agent.get('/pokemons')
+      .expect(200)
+      .expect('Content-Type', /json/)
+    })
+  });
+  describe('GET /types', () => {
+    it('Should get status 200', () => {
+      agent.get('/types')
+      .expect(200)
+      .expect('Content-Type', /json/)
+    })
+  });
+  describe('POST/ pokemons', () => {
+    it('Should post a pokemon with status 200', () => {
+      agent.post('/pokemons')
+      .send(pokemon)
+      .expect(200)
+      .expect('Content-Type', /json/)
+    })
   });
 });

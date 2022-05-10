@@ -5,6 +5,10 @@ import {
   FILTER_BY_ORIGIN,
   FILTER_BY_TYPE,
   SEARCH_POKEMON,
+  POST_POKEMON,
+  GET_DETAIL,
+  CLEAR_STATE,
+  ERROR,
 } from "../actions/ActionsTypes";
 import { sortPoke, filterPoke, filterByType} from "./utils";
 const initialState = {
@@ -13,6 +17,8 @@ const initialState = {
   APIpokes: [],
   DBpokes: [],
   pokeTypes: [],
+  pokeDetail:[],
+  error:''
 };
 
 export default function reducer(state = initialState, action) {
@@ -57,7 +63,25 @@ export default function reducer(state = initialState, action) {
           ...state,
           pokemonsCopy: action.payload
         }
-
+      case POST_POKEMON:
+        return{
+          ...state
+        }
+      case GET_DETAIL:
+        return{
+          ...state,
+          pokeDetail:action.payload
+        }
+      case CLEAR_STATE:
+        return{
+          ...state,
+          pokeDetail:[]
+        }
+      case ERROR:
+        return{
+          ...state,
+          error:action.payload
+        }
     default:
       return state;
   }

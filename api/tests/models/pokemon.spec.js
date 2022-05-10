@@ -6,8 +6,10 @@ describe('Pokemon model', () => {
     .catch((err) => {
       console.error('Unable to connect to the database:', err);
     }));
+
   describe('Validators', () => {
     beforeEach(() => Pokemon.sync({ force: true }));
+
     describe('name', () => {
       it('should throw an error if name is null', (done) => {
         Pokemon.create({})
@@ -15,8 +17,19 @@ describe('Pokemon model', () => {
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
-        Pokemon.create({ name: 'Pikachu' });
+        Pokemon.create({ name: 'Black' });
       });
     });
-  });
+    describe('hp', () => {
+      it('should throw an error if hp is null', (done) => {
+        Pokemon.create({})
+          .then(() => done(new Error('It requires a valid hp')))
+          .catch(() => done());
+      });
+      it('should work when hp is a number', () => {
+        Pokemon.create({ hp: 10 });
+      });
+    });
+    
+  }); 
 });

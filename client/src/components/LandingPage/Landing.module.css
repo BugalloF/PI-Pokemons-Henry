@@ -1,0 +1,46 @@
+.main{
+    font-size: 30px;
+    font-family: "Arial";
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: black;
+    color:yellow;
+    width:100vw;
+    height:100vh;
+    
+}
+.left{
+    display: flex;
+    flex-direction: column;
+    width:49%;
+    height: 70vh;
+    justify-content: center;
+}
+.right{
+    display: flex;
+    width: 50%;
+    flex-direction: row;
+    height: 40vw;
+    margin-left: 50px;
+}
+.img {
+    margin-top: 10px;
+    height: 650px;
+    width: 650px;
+}
+.button {
+    margin-top: 100px;
+    color: black;
+    padding: 10px 30px;
+    font-size: 30px;
+    font-family: "Arial"; 
+    border: 5px solid black;
+    background-color: red;
+    border-radius: 30px;
+ 
+  }
+  .button:hover{
+    transform: scale(1.1);
+    background-color: yellow;
+  }
