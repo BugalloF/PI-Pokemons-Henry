@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BringPokes, bringTypes } from "../../redux/actions";
 import { Link } from "react-router-dom";
-import { MainInfoPoke } from "./MainInfoPoke";
+import { MainInfoPoke } from "../MainInfoPoke/MainInfoPoke";
 import Paginado from "./Paginado";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearcBar/SearchBar";
 import {
   sortPokeAction,
   filterOriginAction,
@@ -14,6 +14,7 @@ import {
 import "./home.css";
 function Home() {
   const dispatch = useDispatch();
+  const original = useSelector(state =>state.pokemons)
   const allPokemons = useSelector((state) => state.pokemonsCopy);
   const allTypes = useSelector((state) => state.pokeTypes);
   const notFound = useSelector((state) => state.error);
@@ -128,6 +129,7 @@ function Home() {
             <option value="Weaker"> Weaker first</option>
           </select>
         </div>
+        
       </div>
       <button
         className="buttons"
@@ -137,8 +139,8 @@ function Home() {
       >
         Reload Pokémons as default
       </button>
-      {notFound.length === 0 ? (
-        currentsPoke.length > 0 && !loader ? (
+      {original.length > 0 && !loader ? (
+        notFound.length === 0 && allPokemons.length>0 ? (
           <div className="card_container">
             {currentsPoke.map((poke) => {
               // console.log()
@@ -157,15 +159,21 @@ function Home() {
           </div>
         ) : (
           <div className="loaderHome">
-            <h1>Searching pokes...</h1>
-          </div>
+          <h1>THERES NO POKEMONS IN THIS AREA...</h1>
+          <img src="https://media4.giphy.com/media/jJO1Bwuch5orK/giphy.gif?cid=ecf05e47uf4ia4e52epwpizigvuitw987bumkkeimfgczdaa&rid=giphy.gif&ct=g" alt="travolta" />
+        </div>
+          
         )
       ) : (
         <div className="loaderHome">
-          <h1>{notFound}</h1>
-        </div>
+            <img
+              src="https://media2.giphy.com/media/nMy8HTFQRWpudNwbxQ/giphy.gif?cid=ecf05e47x29811l114eg1fsrbgq3vbki1375w5sqrqwm1ers&rid=giphy.gif&ct=s"
+              alt="Giphy"
+            />
+            <h1>Searching pokes...</h1>
+          </div>
       )}
-     
+
       <Paginado
         pokemonsPerPage={pokemonsPerPage}
         allPokemons={allPokemons.length}

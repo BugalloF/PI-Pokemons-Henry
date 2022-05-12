@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import {Link} from 'react-router-dom';
-import { getDetails, clearState } from "../../redux/actions";
+import { getDetails, clearState} from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import './Detail.css'
 function PokeDetail(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getDetails(props.match.params.id));
-    
     return () => {
       //codigo para cuando quiero desmontar el componente
       dispatch(clearState())
     }
   }, [dispatch, props.match.params.id]);
   let poke = useSelector((state) => state.pokeDetail);
+ 
   // console.log(poke)
   return (
     <div>
@@ -55,8 +55,6 @@ function PokeDetail(props) {
         </div>
       ) : (
         <div className="loaderDetail">
-          {/* <img src="https://media.giphy.com/media/uWLJEGCSWdmvK/giphy.gif" alt="gifPoke" /> */}
-          {/* <h1>LOADING...</h1> */}
         </div>
       )}
     </div>

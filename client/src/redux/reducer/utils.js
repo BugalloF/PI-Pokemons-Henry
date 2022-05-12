@@ -16,6 +16,7 @@ export const sortPoke = (sortOrder,array) =>{
                 return array.sort((a,b)=>{
                     return a.attack - b.attack
                 })  
+       
             default:
                 return array
     }

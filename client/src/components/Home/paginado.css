@@ -11,3 +11,11 @@
     transform: scale(1.2);
     background-color: red;
 }
+.empty{
+    background-color: white;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  font-size: 40px;
+  margin-left: 100px;
+}

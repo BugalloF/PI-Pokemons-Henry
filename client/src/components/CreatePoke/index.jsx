@@ -117,6 +117,7 @@ export function CreatePoke() {
                 name="hp"
                 placeholder={`Pokemon's HP (1-99)`}
                 onChange={(e) => handleInputChange(e)}
+                className={errors.hp && 'error'}
               />
             </div>
             <div className="input">
@@ -199,6 +200,7 @@ export function CreatePoke() {
           {errors.name || errors.type ? (
             <div className="errorContainer">
               <h3>Errors:</h3>
+              {errors.name && <p>{errors.name}</p>}
               <p>Red fields is required</p>
               <p>1 or 2 types allowed</p>
             </div>
