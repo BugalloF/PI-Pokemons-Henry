@@ -48,6 +48,7 @@
 .pic{
     width: 90vw;
     height: 90vh;
+    border-radius: 55%;
 }
 .btn_home{
     font-family: 'Arial';

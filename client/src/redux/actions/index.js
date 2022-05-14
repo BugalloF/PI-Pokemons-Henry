@@ -9,6 +9,8 @@ import {
   GET_DETAIL,
   CLEAR_STATE,
   ERROR,
+  CLEAR_HOME,
+  DELETE_POKE,
 } from "./ActionsTypes";
 import axios from "axios";
 export function BringPokes() {
@@ -25,7 +27,6 @@ export function BringPokes() {
   };
 }
 
-
 export function bringTypes() {
   return async function (dispatch) {
     const getTypes = (await axios.get("http://localhost:3001/types")).data;
@@ -34,29 +35,26 @@ export function bringTypes() {
 }
 export function searchAction(name) {
   return async function (dispatch) {
-  try {
+    try {
       let pokeFound = (
-        await axios.get(`http://localhost:3001/pokemons?name=${name}`)
+        await axios.get(
+          `http://localhost:3001/pokemons/nombre?name=${name.toLocaleLowerCase()}`
+        )
       ).data;
-
-      if (pokeFound.length === 0) {
-       return dispatch({
-          type: ERROR,
-          payload: "No results founds",
-        });
-      } else {
-        return dispatch({
-          type: SEARCH_POKEMON,
-          payload: pokeFound,
-        });
-      }
+      // console.log(pokeFound)
+      return dispatch({
+        type: SEARCH_POKEMON,
+        payload: pokeFound,
+      });
+      //}
     } catch (error) {
       dispatch({
         type: ERROR,
         payload: "No results founds",
       });
-    };
+      console.log(error);
     }
+  };
 }
 export function sortPokeAction(orderBy) {
   return {
@@ -98,5 +96,18 @@ export function getDetails(id) {
 export function clearState() {
   return {
     type: CLEAR_STATE,
+  };
+}
+export function clearHome() {
+  return {
+    type: CLEAR_HOME,
+  };
+}
+export function deletePokemon(id) {
+  return async function (dispatch) {
+    await axios.delete(`http://localhost:3001/pokemons/${id}`);
+    return dispatch({
+      type: DELETE_POKE,
+    });
   };
 }

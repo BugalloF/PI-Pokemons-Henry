@@ -9,16 +9,18 @@ import {
   GET_DETAIL,
   CLEAR_STATE,
   ERROR,
+  CLEAR_HOME,
+  DELETE_POKE,
 } from "../actions/ActionsTypes";
-import { sortPoke, filterPoke, filterByType} from "./utils";
+import { sortPoke, filterPoke, filterByType } from "./utils";
 const initialState = {
   pokemons: [],
   pokemonsCopy: [],
   APIpokes: [],
   DBpokes: [],
   pokeTypes: [],
-  pokeDetail:[],
-  error:''
+  pokeDetail: [],
+  error: "",
 };
 
 export default function reducer(state = initialState, action) {
@@ -58,31 +60,40 @@ export default function reducer(state = initialState, action) {
             : state.pokemons
         ),
       };
-      case SEARCH_POKEMON:
-        return{
-          ...state,
-          pokemonsCopy: action.payload
-        }
-      case POST_POKEMON:
-        return{
-          ...state
-        }
-      case GET_DETAIL:
-        return{
-          ...state,
-          pokeDetail:action.payload
-        }
-      case CLEAR_STATE:
-        return{
-          ...state,
-          pokeDetail:[]
-        }
-      case ERROR:
-        return{
-          ...state,
-          error:action.payload
-        }
-       
+    case SEARCH_POKEMON:
+      return {
+        ...state,
+        pokemonsCopy: action.payload,
+      };
+    case POST_POKEMON:
+      return {
+        ...state,
+      };
+    case GET_DETAIL:
+      return {
+        ...state,
+        pokeDetail: action.payload,
+      };
+    case CLEAR_STATE:
+      return {
+        ...state,
+        pokeDetail: [],
+      };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case CLEAR_HOME:
+      return {
+        ...state,
+        pokemons: [],
+        pokemonsCopy: [],
+      };
+    case DELETE_POKE:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
