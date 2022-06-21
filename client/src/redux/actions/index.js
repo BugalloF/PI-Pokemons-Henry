@@ -38,7 +38,7 @@ export function searchAction(name) {
     try {
       let pokeFound = (
         await axios.get(
-          `https://pokeapp70.herokuapp.com/pokemons/nombre?name=${name.toLocaleLowerCase()}`
+          `https://pokeapp70.herokuapp.com/pokemons?name=${name.toLocaleLowerCase()}`
         )
       ).data;
       // console.log(pokeFound)
