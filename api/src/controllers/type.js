@@ -7,7 +7,7 @@ const saveAllTypes= async (req,res)=>{
       res.status(404).send('Type not found')
       console.log(error)
     }
-  }
+  } 
   module.exports = {
     saveAllTypes
   };
