@@ -16,7 +16,7 @@ import axios from "axios";
 export function BringPokes() {
   return async function (dispatch) {
     try {
-      var getAll = (await axios.get("http://localhost:3001/pokemons")).data;
+      var getAll = (await axios.get("https://pokeapp70.herokuapp.com/pokemons")).data;
       return dispatch({
         type: GET_ALL_POKEMONS,
         payload: getAll,
@@ -29,7 +29,7 @@ export function BringPokes() {
 
 export function bringTypes() {
   return async function (dispatch) {
-    const getTypes = (await axios.get("http://localhost:3001/types")).data;
+    const getTypes = (await axios.get("https://pokeapp70.herokuapp.com/types")).data;
     return dispatch({ type: GET_TYPES, payload: getTypes });
   };
 }
@@ -38,7 +38,7 @@ export function searchAction(name) {
     try {
       let pokeFound = (
         await axios.get(
-          `http://localhost:3001/pokemons/nombre?name=${name.toLocaleLowerCase()}`
+          `https://pokeapp70.herokuapp.com/pokemons/nombre?name=${name.toLocaleLowerCase()}`
         )
       ).data;
       // console.log(pokeFound)
@@ -76,7 +76,7 @@ export function filterTypeAction(filterBy, origin) {
 }
 export function postPokemon(payload) {
   return async function () {
-    const create = await axios.post("http://localhost:3001/pokemons", payload);
+    const create = await axios.post("https://pokeapp70.herokuapp.com/pokemons", payload);
     return {
       type: POST_POKEMON,
       payload: create,
@@ -85,7 +85,7 @@ export function postPokemon(payload) {
 }
 export function getDetails(id) {
   return async function (dispatch) {
-    const pokeDetail = (await axios.get(`http://localhost:3001/pokemons/${id}`))
+    const pokeDetail = (await axios.get(`https://pokeapp70.herokuapp.com/pokemons/${id}`))
       .data;
     return dispatch({
       type: GET_DETAIL,
@@ -105,7 +105,7 @@ export function clearHome() {
 }
 export function deletePokemon(id) {
   return async function (dispatch) {
-    await axios.delete(`http://localhost:3001/pokemons/${id}`);
+    await axios.delete(`https://pokeapp70.herokuapp.com/pokemons/${id}`);
     return dispatch({
       type: DELETE_POKE,
     });
