@@ -71,8 +71,20 @@ const postPoke = async (req, res) => {
   }
 };
 
+const deletePoke = async (req,res)=>{
+  try {
+    const {id}=req.params
+    let pokeFound= await Pokemon.findByPk(id)
+    await pokeFound.destroy()
+    res.status(200).send('Pokemon Deleted!')
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 module.exports = {
   getAllPoke,
   getOnePoke,
   postPoke,
+  deletePoke
 };

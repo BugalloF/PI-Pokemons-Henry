@@ -4,6 +4,7 @@ const {
   postPoke,
   getAllPoke,
   getOnePoke,
+  deletePoke,
 } = require("../controllers/pokemon");
 
 
@@ -11,6 +12,8 @@ const {
 router.get("/", getAllPoke);
 
 router.get("/:id", getOnePoke);
+
+router.delete('/:id',deletePoke)
 
 router.post("/", postPoke);
 
