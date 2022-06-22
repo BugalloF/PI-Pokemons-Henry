@@ -15,7 +15,7 @@
     border-radius: 30px;
     border: 5px solid #ffd622;
     width: 40%;
-    height: 85vh;
+    height: 90vh;
     margin: 10px;
     background-color: black;
     opacity: 0.8;
@@ -34,9 +34,10 @@
       display: flex;
       flex-direction: row;
       /* gap: 10px; */
-      height: 50%;
+      height: 30%;
       align-items: center;
-      gap: 10px;
+      justify-content: space-around;
+      gap: 7px;
   }
 .stats{
     display: flex;
@@ -46,8 +47,8 @@
     gap: 5px;
 }
 .pic{
-    width: 90vw;
-    height: 90vh;
+    width: 70vw;
+    height: 70vh;
     border-radius: 55%;
 }
 .btn_home{
@@ -57,7 +58,7 @@
     border: yellow solid 2px;
     cursor: pointer;
     background-color: black;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 .btn_home:hover{
     transform: scale(1.1);
@@ -65,8 +66,8 @@
     background-color: yellow;
 }
 .pokepic{
-    height: 210px;
-    width: 210px;
+    height: 150px;
+    width: 150px;
 }
 .loaderDetail{
     width: 100vw;
