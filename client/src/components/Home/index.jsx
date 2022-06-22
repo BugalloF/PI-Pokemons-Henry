@@ -80,7 +80,7 @@ function Home() {
             onChange={handleSort}
             className="buttons"
           >
-            <option value="Sort by name" selected disabled>
+            <option value="Sort by name"  disabled>
               Sort by name
             </option>
             <option value="A-Z">A-Z</option>
@@ -94,7 +94,7 @@ function Home() {
             onChange={handlerFilterOrigin}
             className="buttons"
           >
-            <option value="All" selected disabled>
+            <option value="All"  disabled>
               Sort by origin
             </option>
             <option value="FromApi">From API</option>
@@ -107,7 +107,7 @@ function Home() {
             defaultValue="All"
             className="buttons"
           >
-            <option value="All" selected disabled>
+            <option value="All"  disabled>
               Sort by type
             </option>
             {allTypes.map((type) => {
@@ -125,7 +125,7 @@ function Home() {
             onChange={handleSort}
             className="buttons"
           >
-            <option value="Sort by attack" selected disabled>
+            <option value="Sort by attack"  disabled>
               Sort by attack
             </option>
             <option value="Stronger">Stronger first</option>
