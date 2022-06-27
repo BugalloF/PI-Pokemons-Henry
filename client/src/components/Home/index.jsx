@@ -36,8 +36,9 @@ function Home() {
     dispatch(bringTypes());
     return () => {
       dispatch(clearHome());
+      window.scrollTo(0,0); 
     };
-  }, [dispatch]);
+  }, [dispatch,currentPage]);
 
   function handleSort(e) {
     e.preventDefault();

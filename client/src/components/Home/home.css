@@ -67,23 +67,22 @@
     color:red
 }
 .loaderHome{
-  background:url("https://gameranx.com/wp-content/uploads/2016/07/Pokemon-GO-720P-Wallpaper-1.jpg");
   display: flex;
-  flex-direction: column;
-  height: 84vh;
-  width: 80vw;
-  color: black;
-  background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-    justify-content: center;
+ flex-direction: column;
+ padding-bottom: 23px;
+/*
+  color: black; */
+  /* background-attachment: fixed;
+  background-size: cover;
+  background-position: center; */
+  align-items: center;
+  justify-content: center;
 }
 .loaderHome h1{
   background-color: white;
   align-items: center;
-  justify-content: center;
+ justify-content: center;
   opacity: 0.5;
   font-size: 40px;
-  margin-left: 100px;
+  /* margin-left: 100px; */
 }
