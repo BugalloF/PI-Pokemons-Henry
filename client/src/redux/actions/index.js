@@ -13,10 +13,14 @@ import {
   DELETE_POKE,
 } from "./ActionsTypes";
 import axios from "axios";
+require('dotenv').config()
+
+const {REACT_APP_DATABASE_URL} = process.env;
+console.log(REACT_APP_DATABASE_URL);
 export function BringPokes() {
   return async function (dispatch) {
     try {
-      var getAll = (await axios.get("https://pokeapp70.herokuapp.com/pokemons")).data;
+      var getAll = (await axios.get(`${REACT_APP_DATABASE_URL}/pokemons`)).data;
       return dispatch({
         type: GET_ALL_POKEMONS,
         payload: getAll,
@@ -29,7 +33,7 @@ export function BringPokes() {
 
 export function bringTypes() {
   return async function (dispatch) {
-    const getTypes = (await axios.get("https://pokeapp70.herokuapp.com/types")).data;
+    const getTypes = (await axios.get(`${REACT_APP_DATABASE_URL}/types`)).data;
     return dispatch({ type: GET_TYPES, payload: getTypes });
   };
 }
@@ -38,7 +42,7 @@ export function searchAction(name) {
     try {
       let pokeFound = (
         await axios.get(
-          `https://pokeapp70.herokuapp.com/pokemons?name=${name.toLocaleLowerCase()}`
+          `${REACT_APP_DATABASE_URL}/pokemons?name=${name.toLocaleLowerCase()}`
         )
       ).data;
       // console.log(pokeFound)
@@ -76,7 +80,7 @@ export function filterTypeAction(filterBy, origin) {
 }
 export function postPokemon(payload) {
   return async function () {
-    const create = await axios.post("https://pokeapp70.herokuapp.com/pokemons", payload);
+    const create = await axios.post(`${REACT_APP_DATABASE_URL}/pokemons`, payload);
     return {
       type: POST_POKEMON,
       payload: create,
@@ -85,7 +89,7 @@ export function postPokemon(payload) {
 }
 export function getDetails(id) {
   return async function (dispatch) {
-    const pokeDetail = (await axios.get(`https://pokeapp70.herokuapp.com/pokemons/${id}`))
+    const pokeDetail = (await axios.get(`${REACT_APP_DATABASE_URL}/pokemons/${id}`))
       .data;
     return dispatch({
       type: GET_DETAIL,
@@ -105,7 +109,7 @@ export function clearHome() {
 }
 export function deletePokemon(id) {
   return async function (dispatch) {
-    await axios.delete(`https://pokeapp70.herokuapp.com/pokemons/${id}`);
+    await axios.delete(`${REACT_APP_DATABASE_URL}/pokemons/${id}`);
     return dispatch({
       type: DELETE_POKE,
     });
