@@ -15,7 +15,7 @@ import {
 import axios from "axios";
 require('dotenv').config()
 
-const {REACT_APP_DATABASE_URL} = process.env;
+const REACT_APP_DATABASE_URL = process.env.REACT_APP_DATABASE_URL;
 console.log(REACT_APP_DATABASE_URL);
 export function BringPokes() {
   return async function (dispatch) {
