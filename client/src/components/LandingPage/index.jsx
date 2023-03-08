@@ -6,6 +6,7 @@ function LandingPage() {
     <div className={Classes.main}>
       <div className={Classes.left}>
         <h1>¡Welcome to Fermin's Pokémon page!</h1>
+        <h5>(This was my first web page for Henry's Bootcamp!)</h5>
         <h2>
           <Link to="/home">
             <button className={Classes.button}>Catch'em all !!!</button>
